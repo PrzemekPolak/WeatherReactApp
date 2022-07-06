@@ -1,4 +1,3 @@
-import './App.css';
 import HeaderContainer from './HeaderContainer.js'
 import MainContainer from './MainContainer.js'
 import forecast from './forecast.json'
@@ -23,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-        <HeaderContainer x='jooo'/>
+        <HeaderContainer x='Prognoza pogody'/>
         <MainContainer yy='main cont' hourlyData={forcastData.hourly} dailyData={forcastData.daily}/>
 
 

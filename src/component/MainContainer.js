@@ -12,13 +12,13 @@ function MainContainer(props) {
         dailyForecastRow.push(<DailyForcastContainer key={props.dailyData.time[i]}
             time={props.dailyData.time[i]}
             temperatureMin={props.dailyData.temperature_2m_min[i]}
-            temperatureMax={props.dailyData.temperature_2m_max[i]} />)
+            temperatureMax={props.dailyData.temperature_2m_max[i]}
+            weathercode={props.dailyData.weathercode[i]} />)
     }
 
     return <div>
-            <h1>{props.yy}</h1>
-            <div>{props.dailyData.time}</div>
-            <div>
+            <h1 className="text-3xl font-bold underline">{props.yy}</h1>
+            <div className="grid grid-cols-7 gap-4 mx-8">
                 {dailyForecastRow}
             </div>
         </div>;
