@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
         <HeaderContainer x='Prognoza pogody'/>
-        <MainContainer yy='main cont' hourlyData={forcastData.hourly} dailyData={forcastData.daily}/>
+        <MainContainer hourlyData={forcastData.hourly} dailyData={forcastData.daily}/>
 
 
 

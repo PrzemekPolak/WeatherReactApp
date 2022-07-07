@@ -18,7 +18,7 @@ function HourlyForcastContainer(props) {
     return <div>
                 <div className="text-center">
                     {parseInt(props.selectedDay.substr(8, 9)) === new Date().getDate() ? 
-                    'Prognoza pogody na 24 godziny'
+                    'Prognoza pogody na następne 24 godziny'
                     : 'Prognoza pogody na ' + props.selectedDay}
                 </div>
                 <div className="overflow-auto h-96">
