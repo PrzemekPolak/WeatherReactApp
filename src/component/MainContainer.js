@@ -23,10 +23,19 @@ function MainContainer(props) {
             result[id].temperature.push(hourlyData.temperature_2m[x])
             result[id].weathercode.push(hourlyData.weathercode[x])
         }
+        // Current day should show next 24 hours
+        var currentHour = new Date().getHours()
+        var newTime = [...Object.values(result)[0].time.slice(currentHour,24), ...Object.values(result)[1].time.slice(0,currentHour)]
+        var newTemperature = [...Object.values(result)[0].temperature.slice(currentHour,24), ...Object.values(result)[1].temperature.slice(0,currentHour)]
+        var newWeathercode = [...Object.values(result)[0].weathercode.slice(currentHour,24), ...Object.values(result)[1].weathercode.slice(0,currentHour)]
+        Object.values(result)[0].time = newTime
+        Object.values(result)[0].temperature = newTemperature
+        Object.values(result)[0].weathercode = newWeathercode
         return result
     }
 
-
+    // var date = new Date().toJSON();
+    // console.log(date)
 
     var hourlyData = prepareHourlyData(props.hourlyData)
 

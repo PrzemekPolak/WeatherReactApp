@@ -7,9 +7,12 @@ function DailyForcastContainer(props) {
             <h3>Data: {props.time}</h3>
             <div>Temperatura minimalna: {props.temperatureMin}</div>
             <div>Temperatura maksymalna: {props.temperatureMax}</div>
-            <WeatherImage key={props.weathercode}
-                weathercode={props.weathercode}
-            />
+            <div className="mx-5 my-5">
+                <WeatherImage
+                    weathercode={props.weathercode}
+                    time={props.time}
+                />
+            </div>
         </div>;
 }
 

@@ -35,6 +35,11 @@ export const options = {
 defaults.font.size = 24
 defaults.font.color = 'black'
 defaults.scale.grid.display = false
+defaults.scale.ticks.precision = 0
+defaults.hover.intersect = false
+defaults.plugins.tooltip.mode = 'nearest'
+defaults.plugins.tooltip.intersect = false
+defaults.plugins.tooltip.titleAlign = 'center'
 
 function HourlyTemperatureChart(props) {
     const labels = props.time
