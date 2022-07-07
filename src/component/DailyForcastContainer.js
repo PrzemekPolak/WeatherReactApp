@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherImage from './WeatherImage.js'
 
 function DailyForcastContainer(props) {
     return <div className={props.isSelected !== props.time ? 'rounded-lg border-double border-4 border-sky-500' : 'bg-violet-700'}
@@ -6,8 +7,9 @@ function DailyForcastContainer(props) {
             <h3>Data: {props.time}</h3>
             <div>Temperatura minimalna: {props.temperatureMin}</div>
             <div>Temperatura maksymalna: {props.temperatureMax}</div>
-            <div>Kod pogody: {props.weathercode}</div>
-            <img src={require('../images/sunny.png')} alt='Weather symbol' />
+            <WeatherImage key={props.weathercode}
+                weathercode={props.weathercode}
+            />
         </div>;
 }
 

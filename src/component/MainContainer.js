@@ -49,7 +49,8 @@ function MainContainer(props) {
             temperatureMax={props.dailyData.temperature_2m_max[i]}
             weathercode={props.dailyData.weathercode[i]}
             handleClick={handleClick}
-            isSelected={selectedDay} />)
+            isSelected={selectedDay}
+        />)
     }
 
 
@@ -60,6 +61,7 @@ function MainContainer(props) {
             </div>
             <div className="">
                 {selectedDay ? <HourlyForcastContainer key={hourlyData.time}
+                    selectedDay={selectedDay}
                     time={hourlyData[selectedDay].time}
                     temperature={hourlyData[selectedDay].temperature}
                     weathercode={hourlyData[selectedDay].weathercode}
