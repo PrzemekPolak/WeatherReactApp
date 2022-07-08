@@ -4,10 +4,7 @@ import HourlyForcastContainer from './HourlyForcastContainer.js'
 import prepareHourlyData from '../utils/prepareHourlyData.js'
 
 function MainContainer(props) {
-
-    // var date = new Date().toJSON();
-    // console.log(date)
-
+    
     var hourlyData = prepareHourlyData(props.hourlyData)
 
     function handleClick(event) {
