@@ -28,8 +28,8 @@ function App() {
     const [settingsVisible, changeSettingsVisibility] = useState(false) 
 
     const [settings, changeSettings] = useState({
-                                'showx': true,
-                                'showy': true,      
+                                'setting1': false,
+                                'showy': true,
                                       })
 
     return (
@@ -37,15 +37,11 @@ function App() {
             <HeaderContainer x='Prognoza pogody'/>
             <MainContainer hourlyData={forcastData.hourly} dailyData={forcastData.daily}/>
 
-            <div onClick={onGearClick} className="w-[80px] fixed top-0 right-0 select-none z-10">
+            <div onClick={onGearClick} className="w-[80px] fixed top-0 right-0 select-none z-10 cursor-pointer">
               <div className="text-[50px] text-center">&#9881;</div>
             </div>
             {settingsVisible && <SettingsContainer settings={settings} changeSettings={changeSettings}/>}
         
-          <div>
-            {console.log(settings.showx + ' | | ' + settings.showy)}
-          </div>
-
         </div>
   );
 }
