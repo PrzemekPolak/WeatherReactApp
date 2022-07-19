@@ -1,20 +1,12 @@
 import React, { useState } from "react";
 import DailyForcastContainer from './DailyForcastContainer.js'
 import HourlyForcastContainer from './HourlyForcastContainer.js'
+import ScrollToButton from './ScrollToButton.js'
 import prepareHourlyData from '../utils/prepareHourlyData.js'
 
 function MainContainer(props) {
     
     var hourlyData = prepareHourlyData(props.hourlyData)
-
-    function handleClick(event) {
-        if (selectedDay === event.currentTarget.id) {
-            setSelectedDay('')
-        }
-        else {
-            setSelectedDay(event.currentTarget.id)
-        }
-    };
 
     const [selectedDay, setSelectedDay] = useState('')
     var dailyForecastRow = []
@@ -25,13 +17,14 @@ function MainContainer(props) {
             temperatureMin={props.dailyData.temperature_2m_min[i]}
             temperatureMax={props.dailyData.temperature_2m_max[i]}
             weathercode={props.dailyData.weathercode[i]}
-            handleClick={handleClick}
+            setSelectedDay={setSelectedDay}
             isSelected={selectedDay}
+            settings={props.settings}
         />)
     }
 
     return <div className="mt-5">
-            <div className="grid grid-cols-7 gap-4 mx-8">
+            <div className="gap-2 mx-2 lg:mx-8 flex flex-wrap justify-center xl:justify-between">
                 {dailyForecastRow}
             </div>
             <div>
@@ -40,6 +33,14 @@ function MainContainer(props) {
                     time={hourlyData[selectedDay].time}
                     temperature={hourlyData[selectedDay].temperature}
                     weathercode={hourlyData[selectedDay].weathercode}
+                    settings={props.settings}
+                />
+                : false}
+            </div>
+            <div>
+                {selectedDay && document.body.clientWidth < 1370 ? <ScrollToButton
+                    selectedDay={selectedDay}
+                    setSelectedDay={setSelectedDay}
                 />
                 : false}
             </div>

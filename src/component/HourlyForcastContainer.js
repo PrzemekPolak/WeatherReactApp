@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HourlyTemperatureChart from './HourlyTemperatureChart.js'
 import WeatherImage from './WeatherImage.js'
 
 function HourlyForcastContainer(props) {
+    // On smaller screens when selected, jump to the bottom where this component is placed
+    useEffect(() => {
+        if (document.body.clientWidth < 1500) {
+            window.scrollTo(0, document.body.scrollHeight)
+        }
+    }, [props.selectedDay]);
+
     var hourlyWeatherImageRow = []
 
     for (var i=0; i < props.weathercode.length; i++) {
@@ -11,18 +18,20 @@ function HourlyForcastContainer(props) {
             <WeatherImage key={props.time[i]+props.weathercode[i]}
                 weathercode={props.weathercode[i]}
                 time={props.time[i]}
+                settings={props.settings}
+                smallSize={true}
             />
         </div>)
     }
 
-    return <div>
+    return <div className="bg-sky-200 mx-8 border-r-4 border-l-4 rounded-lg border-double border-sky-500">
                 <div className="text-center">
                     {parseInt(props.selectedDay.substr(8, 9)) === new Date().getDate() ? 
                     'Prognoza pogody na następne 24 godziny'
                     : 'Prognoza pogody na ' + props.selectedDay}
                 </div>
                 <div className="overflow-auto h-96">
-                    <div className="mx-10 h-64 w-[2200px]">
+                    <div className=" h-64 w-[2200px]">
                         <HourlyTemperatureChart key={props.time}
                             time={props.time}
                             temperature={props.temperature}

@@ -13,11 +13,11 @@ function SettingsContainer(props) {
         updateSettings(switchName)
     }
     // Watched variables of different toggle switches
-    const [setting1, setting1Set] = useState(props.settings.setting1)
+    const [noIcons, noIconsSet] = useState(props.settings.noIcons)
     const [showy, showySet] = useState(props.settings.showy)
 
 
-    return <div className="w-64 h-96 bg-white/[.8] fixed top-0 right-0
+    return <div className="w-80 h-96 bg-white/[.95] md:bg-white/[.8] fixed top-0 right-0
             border-double border-4 border-black">
             <div className="text-[26px] text-center font-bold mr-[60px] my-5">
                 Ustawienia
@@ -25,11 +25,11 @@ function SettingsContainer(props) {
 
             <div>
                 <ToggleSwitch
-                    checked={setting1}
-                    switchName='setting1'
+                    checked={noIcons}
+                    switchName='noIcons'
                     onChange={updateSwitchState}
-                    toggleFunction={setting1Set}
-                    label='Nazwa ustawienia'
+                    toggleFunction={noIconsSet}
+                    label='Tekst zamiast symbolu pogody'
                 />
             </div>
             <div>
@@ -42,8 +42,8 @@ function SettingsContainer(props) {
                 />
 
 
-            {props.settings.setting1 && (
-                <div>setting1 test</div>
+            {props.settings.noIcons && (
+                <div>noIcons test</div>
             )}
             {props.settings.showy && (
                 <div>Y test</div>

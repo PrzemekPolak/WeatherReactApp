@@ -28,14 +28,16 @@ function App() {
     const [settingsVisible, changeSettingsVisibility] = useState(false) 
 
     const [settings, changeSettings] = useState({
-                                'setting1': false,
+                                'noIcons': false,
                                 'showy': true,
                                       })
 
     return (
         <div className="App">
             <HeaderContainer x='Prognoza pogody'/>
-            <MainContainer hourlyData={forcastData.hourly} dailyData={forcastData.daily}/>
+            <MainContainer hourlyData={forcastData.hourly}
+                          dailyData={forcastData.daily}
+                          settings={settings} />
 
             <div onClick={onGearClick} className="w-[80px] fixed top-0 right-0 select-none z-10 cursor-pointer">
               <div className="text-[50px] text-center">&#9881;</div>
